@@ -7,12 +7,10 @@ function findElement(array $arr, int $index): array
 {
     $el = [];
     foreach ($arr as $key => $val) {
-        if (is_array($val) && $key !== $index) {
-            $el = array_merge($el, findElement($val, $index));
-        } else {
-            if ($key === $index) {
-                $el[] = $val;
-            }
+        if (is_array($val)) {
+            $el = array_merge($el, findElement($val, $index)); 
+        } elseif ($key === $index) {
+            $el[] = $val; 
         }
     }
     return $el;
