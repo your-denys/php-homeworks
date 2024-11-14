@@ -8,9 +8,9 @@ function findElement(array $arr, int $index): array
     $el = [];
     foreach ($arr as $key => $val) {
         if (is_array($val)) {
-            $el = array_merge($el, findElement($val, $index)); 
+            $el = array_merge($el, findElement($val, $index)); // Рекурсивный вызов для вложенного массива
         } elseif ($key === $index) {
-            $el[] = $val; 
+            $el[] = $val; // Если ключ совпадает с индексом, добавляем значение в результат
         }
     }
     return $el;
@@ -27,7 +27,7 @@ $array = [
 
 $index = 1;
 $result = findElement($array, $index);
-// var_dump($result);
+var_dump($result);
 
 // Создать функцию которая считает все буквы b в переданной строке, в случае если передается не строка функция должна возвращать false
 
