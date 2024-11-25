@@ -49,5 +49,3 @@ class Router
         return $result;
     }
 }
-
-
